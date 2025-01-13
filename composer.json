@@ -1,0 +1,19 @@
+{
+    "require-dev": {
+        "phpunit/phpunit": "^9.0",
+        "brain/monkey": "^2.6",
+        "mockery/mockery": "^1.5",
+        "yoast/wp-test-utils": "^1.0"
+    },
+    "autoload": {
+        "classmap": [
+            "includes/",
+            "pagepatrol.php"
+        ]
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "PagePatrol\\Tests\\": "tests/"
+        }
+    }
+}
