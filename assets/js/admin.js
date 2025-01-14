@@ -39,7 +39,7 @@ jQuery(document).ready(function ($) {
                 <tr>
                     <td>${new Date(log.created_at).toLocaleString()}</td>
                     <td>${log.succeed ? 'Success' : 'Failed'}</td>
-                    <td>${log.response_time}ms</td>
+                    <td>${log.response_time ? log.response_time + 'ms' : '-'}</td>
                 </tr>
             `);
     });
