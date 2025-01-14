@@ -10,9 +10,9 @@ Brain\Monkey\Functions\when('plugin_dir_url')->justReturn('http://example.com/wp
 Brain\Monkey\Functions\when('plugin_basename')->justReturn('pagepatrol/pagepatrol.php');
 Brain\Monkey\Functions\when('wp_remote_request')->justReturn([
     'response' => ['code' => 200],
-    'body' => json_encode(['id' => '123'])
+    'body' => wp_json_encode(['id' => '123'])
 ]);
-Brain\Monkey\Functions\when('wp_remote_retrieve_body')->justReturn(json_encode(['id' => '123']));
+Brain\Monkey\Functions\when('wp_remote_retrieve_body')->justReturn(wp_json_encode(['id' => '123']));
 Brain\Monkey\Functions\when('wp_remote_retrieve_response_code')->justReturn(200);
 Brain\Monkey\Functions\when('is_wp_error')->justReturn(false);
 Brain\Monkey\Functions\when('get_option')->justReturn('test_value');

@@ -35,12 +35,12 @@ class APIClientTest extends TestCase
             ->once()
             ->andReturn([
                 'response' => ['code' => 200],
-                'body' => json_encode(['id' => 123])
+                'body' => wp_json_encode(['id' => 123])
             ]);
 
         Functions\expect('wp_remote_retrieve_body')
             ->once()
-            ->andReturn(json_encode(['id' => 123]));
+            ->andReturn(wp_json_encode(['id' => 123]));
 
         Functions\expect('wp_remote_retrieve_response_code')
             ->once()
@@ -56,12 +56,12 @@ class APIClientTest extends TestCase
             ->once()
             ->andReturn([
                 'response' => ['code' => 200],
-                'body' => json_encode(['status' => 'up'])
+                'body' => wp_json_encode(['status' => 'up'])
             ]);
 
         Functions\expect('wp_remote_retrieve_body')
             ->once()
-            ->andReturn(json_encode(['status' => 'up']));
+            ->andReturn(wp_json_encode(['status' => 'up']));
 
         Functions\expect('wp_remote_retrieve_response_code')
             ->once()
