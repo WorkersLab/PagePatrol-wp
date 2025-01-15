@@ -1,0 +1,56 @@
+name: Create Release
+
+on:
+  push:
+    tags:
+      - "v*.*.*"
+  workflow_dispatch: {}
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions: # Add this permissions block
+      contents: write # Required for creating releases and uploading assets
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+        with:
+          path: pagepatrol
+
+      - name: Set up PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: "8.1"
+          coverage: none
+          extensions: zip
+
+      - name: Install dependencies & run tests
+        working-directory: pagepatrol
+        run: |
+          composer install
+          ./vendor/bin/phpunit
+
+      - name: Prepare release folder
+        run: |
+          mkdir -p release/pagepatrol
+          ls -la
+          cp -R pagepatrol/assets release/pagepatrol/
+          cp -R pagepatrol/includes release/pagepatrol/
+          cp -R pagepatrol/views release/pagepatrol/
+          cp pagepatrol/pagepatrol.php release/pagepatrol/
+          cp pagepatrol/readme.txt release/pagepatrol/
+
+      - name: Create zip file
+        working-directory: release
+        run: zip -r ../pagepatrol.zip pagepatrol
+
+      - name: Create GitHub Release
+        id: create_release
+        uses: softprops/action-gh-release@v1
+        with:
+          draft: true
+          prerelease: false
+          files: pagepatrol.zip # Simplified file upload
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
