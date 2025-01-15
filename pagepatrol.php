@@ -6,7 +6,7 @@
  * Requires at least: 6.0
  * Requires PHP: 8.1
  * Author: ibabar, PagePatrol
- * Author URI: https://pagepatrol.net
+ * Author URI: https://fusion.pagepatrol.net
  * License: GPLv2 or later
  * Text Domain: pagepatrol
  */
@@ -85,7 +85,7 @@ class PagePatrol {
     public function add_plugin_links($links) {
         $settings_link =
             '<a href="' .
-            admin_url("admin.php?page=pagepatrol") .
+            esc_url(admin_url("admin.php?page=pagepatrol")) .
             '">Settings</a>';
         array_unshift($links, $settings_link);
         return $links;

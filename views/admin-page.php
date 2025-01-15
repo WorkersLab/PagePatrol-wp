@@ -1,7 +1,13 @@
+<?php
+// Exit if accessed directly
+if (!defined("ABSPATH")) {
+    exit();
+} ?>
+
 <div class="wrap">
     <h1>PagePatrol</h1>
 
-    <?php if (!get_option('pagepatrol_api_key')): ?>
+    <?php if (!get_option("pagepatrol_api_key")): ?>
         <!-- API Key Setup -->
         <div class="notice notice-info">
             <p>Welcome to PagePatrol! Let's get started by connecting your site.</p>
@@ -12,7 +18,7 @@
             <p>Enter your PagePatrol API key to start monitoring your site.</p>
 
             <form method="post" action="options.php">
-                <?php settings_fields('pagepatrol_settings'); ?>
+                <?php settings_fields("pagepatrol_settings"); ?>
                 <table class="form-table">
                     <tr>
                         <th scope="row">API Key</th>
@@ -20,14 +26,16 @@
                             <input type="password"
                                    name="pagepatrol_api_key"
                                    class="regular-text"
-                                   value="<?php echo esc_attr(get_option('pagepatrol_api_key')); ?>" />
+                                   value="<?php echo esc_attr(
+                                       get_option("pagepatrol_api_key")
+                                   ); ?>" />
                             <p class="description">
                                 Don't have an API key? <a href="https://pagepatrol.net/api_keys" target="_blank">Get one here</a>
                             </p>
                         </td>
                     </tr>
                 </table>
-                <?php submit_button('Connect Site'); ?>
+                <?php submit_button("Connect Site"); ?>
             </form>
         </div>
     <?php else: ?>
