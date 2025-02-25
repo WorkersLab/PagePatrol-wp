@@ -6,7 +6,7 @@
  * Requires at least: 6.0
  * Requires PHP: 8.1
  * Author: ibabar, PagePatrol
- * Author URI: https://fusion.pagepatrol.net
+ * Author URI: https://pagepatrol.net
  * License: GPLv2 or later
  * Text Domain: pagepatrol
  */
@@ -39,7 +39,7 @@ class PagePatrol {
         define("PAGEPATROL_VERSION", "1.0.0");
         define("PAGEPATROL_PLUGIN_DIR", plugin_dir_path(__FILE__));
         define("PAGEPATROL_PLUGIN_URL", plugin_dir_url(__FILE__));
-        define("PAGEPATROL_API_URL", "https://fusion-api.pagepatrol.net/v1");
+        define("PAGEPATROL_API_URL", "https://api.pagepatrol.net/v1");
     }
 
     private function include_files() {
