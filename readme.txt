@@ -2,8 +2,8 @@
 Contributors: ibabar
 Tags: monitoring, uptime, performance, status, alerts
 Requires at least: 6.0
-Tested up to: 6.7
-Stable tag: 0.1.0
+Tested up to: 6.8
+Stable tag: 0.1.1
 Requires PHP: 8.1
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -58,6 +58,9 @@ The plugin itself is free, but it requires a PagePatrol account to function. Vis
 4. Admin bar integration
 
 == Changelog ==
+
+= 0.1.1 =
+* Compatibility updates for WordPress 6.8
 
 = 0.1.0 =
 * Initial release
